@@ -1,0 +1,20 @@
+{
+  "group": "theshadowrealm",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1"
+  ],
+  "key": {
+    "0": {
+      "item": "theshadowrealm:unrefinedyellowite"
+    },
+    "1": {
+      "item": "theshadowrealm:yellowitestick"
+    }
+  },
+  "result": {
+    "item": "theshadowrealm:yellowiteshovel",
+    "count": 1
+  }
+}

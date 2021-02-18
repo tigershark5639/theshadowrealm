@@ -1,0 +1,39 @@
+{
+  "group": "theshadowrealm",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "theshadowrealm:shadestone"
+    },
+    "1": {
+      "item": "theshadowrealm:shadestone"
+    },
+    "2": {
+      "item": "theshadowrealm:shadestone"
+    },
+    "3": {
+      "item": "theshadowrealm:shadestone"
+    },
+    "5": {
+      "item": "theshadowrealm:shadestone"
+    },
+    "6": {
+      "item": "theshadowrealm:shadestone"
+    },
+    "7": {
+      "item": "theshadowrealm:shadestone"
+    },
+    "8": {
+      "item": "theshadowrealm:shadestone"
+    }
+  },
+  "result": {
+    "item": "minecraft:furnace",
+    "count": 1
+  }
+}

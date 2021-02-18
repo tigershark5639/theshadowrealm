@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "theshadowrealm:blocks/yellowshadegrassplant",
+    "particle": "theshadowrealm:blocks/yellowshadegrassplant"
+  }
+}

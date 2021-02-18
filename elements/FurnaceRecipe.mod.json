@@ -1,0 +1,45 @@
+{
+  "_fv": 6,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Shadestone"
+      },
+      {
+        "value": "CUSTOM:Shadestone"
+      },
+      {
+        "value": "CUSTOM:Shadestone"
+      },
+      {
+        "value": "CUSTOM:Shadestone"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Shadestone"
+      },
+      {
+        "value": "CUSTOM:Shadestone"
+      },
+      {
+        "value": "CUSTOM:Shadestone"
+      },
+      {
+        "value": "CUSTOM:Shadestone"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "Blocks.FURNACE"
+    },
+    "name": "furnacerecipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "group": "theshadowrealm",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "theshadowrealm:yellowgrassflakes"
+    },
+    {
+      "item": "theshadowrealm:shadedirt"
+    },
+    {
+      "item": "theshadowrealm:shadedirt"
+    },
+    {
+      "item": "theshadowrealm:yellowgrassflakes"
+    }
+  ],
+  "result": {
+    "item": "theshadowrealm:unrefinedyellowite",
+    "count": 1
+  }
+}

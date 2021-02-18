@@ -1,0 +1,26 @@
+{
+  "group": "theshadowrealm",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "theshadowrealm:yellowgrassflakes"
+    },
+    "1": {
+      "item": "theshadowrealm:yellowgrassflakes"
+    },
+    "2": {
+      "item": "theshadowrealm:shadestone"
+    },
+    "3": {
+      "item": "theshadowrealm:shadestone"
+    }
+  },
+  "result": {
+    "item": "minecraft:crafting_table",
+    "count": 1
+  }
+}

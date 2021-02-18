@@ -1,0 +1,45 @@
+{
+  "_fv": 6,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:YellowgrassFlakes"
+      },
+      {
+        "value": "CUSTOM:ShadeDirt"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:ShadeDirt"
+      },
+      {
+        "value": "CUSTOM:YellowgrassFlakes"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:UnrefinedYellowite"
+    },
+    "name": "unrefinedyellowiterecipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "_fv": 6,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "ellowite_hovel",
+    "customModelName": "Normal",
+    "name": "Yellowite Shovel",
+    "creativeTab": {
+      "value": "TOOLS"
+    },
+    "toolType": "Spade",
+    "harvestLevel": 0,
+    "efficiency": 3.0,
+    "attackSpeed": 1.0,
+    "enchantability": 20,
+    "damageVsEntity": 4.0,
+    "usageCount": 75,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "CUSTOM:UnrefinedYellowite"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "yelowhurt": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "theshadowrealm:yelowhurt",
+        "stream": false
+      }
+    ]
+  },
+  "yelowdeath": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "theshadowrealm:yelowdeath",
+        "stream": false
+      }
+    ]
+  }
+}

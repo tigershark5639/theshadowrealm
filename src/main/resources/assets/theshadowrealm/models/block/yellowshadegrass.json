@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "theshadowrealm:blocks/shadedirt",
+    "up": "theshadowrealm:blocks/yellowshadegrasstop",
+    "north": "theshadowrealm:blocks/yellowshadegrassside",
+    "east": "theshadowrealm:blocks/yellowshadegrassside",
+    "south": "theshadowrealm:blocks/yellowshadegrassside",
+    "west": "theshadowrealm:blocks/yellowshadegrassside",
+    "particle": "theshadowrealm:blocks/shadedirt"
+  }
+}
