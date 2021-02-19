@@ -58,6 +58,12 @@ public class ElementsTheShadowRealm implements IFuelHandler, IWorldGenerator {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("theshadowrealm", "yelowhurt")));
 		sounds.put(new ResourceLocation("theshadowrealm", "yelowdeath"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("theshadowrealm", "yelowdeath")));
+		sounds.put(new ResourceLocation("theshadowrealm", "shadegremlindie"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("theshadowrealm", "shadegremlindie")));
+		sounds.put(new ResourceLocation("theshadowrealm", "shadegremlinhurt"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("theshadowrealm", "shadegremlinhurt")));
+		sounds.put(new ResourceLocation("theshadowrealm", "shadegremlinlive"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("theshadowrealm", "shadegremlinlive")));
 	}
 
 	public void preInit(FMLPreInitializationEvent event) {

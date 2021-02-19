@@ -13,13 +13,14 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.item.Item;
-import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -35,17 +36,17 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @ElementsTheShadowRealm.ModElement.Tag
-public class EntityYelow extends ElementsTheShadowRealm.ModElement {
-	public static final int ENTITYID = 3;
-	public static final int ENTITYID_RANGED = 4;
-	public EntityYelow(ElementsTheShadowRealm instance) {
-		super(instance, 22);
+public class EntityShadegremlin extends ElementsTheShadowRealm.ModElement {
+	public static final int ENTITYID = 5;
+	public static final int ENTITYID_RANGED = 6;
+	public EntityShadegremlin(ElementsTheShadowRealm instance) {
+		super(instance, 23);
 	}
 
 	@Override
 	public void initElements() {
 		elements.entities.add(() -> EntityEntryBuilder.create().entity(EntityCustom.class)
-				.id(new ResourceLocation("theshadowrealm", "yelow"), ENTITYID).name("yelow").tracker(64, 3, true).egg(-1, -1).build());
+				.id(new ResourceLocation("theshadowrealm", "shadegremlin"), ENTITYID).name("shadegremlin").tracker(64, 3, true).egg(-1, -1).build());
 	}
 
 	private Biome[] allbiomes(net.minecraft.util.registry.RegistryNamespaced<ResourceLocation, Biome> in) {
@@ -60,9 +61,9 @@ public class EntityYelow extends ElementsTheShadowRealm.ModElement {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(EntityCustom.class, renderManager -> {
-			return new RenderLiving(renderManager, new Modelyelow(), 0.5f) {
+			return new RenderLiving(renderManager, new Modelshadegremlin(), 0.5f) {
 				protected ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("theshadowrealm:textures/yelow.png");
+					return new ResourceLocation("theshadowrealm:textures/shadegremlintest.png");
 				}
 			};
 		});
@@ -79,12 +80,13 @@ public class EntityYelow extends ElementsTheShadowRealm.ModElement {
 		@Override
 		protected void initEntityAI() {
 			super.initEntityAI();
-			this.tasks.addTask(1, new EntityAIWander(this, 1));
-			this.tasks.addTask(2, new EntityAILookIdle(this));
-			this.tasks.addTask(3, new EntityAISwimming(this));
-			this.targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, EntityPigZombie.class, true, false));
-			this.tasks.addTask(5, new EntityAIAttackMelee(this, 1.2, false));
-			this.targetTasks.addTask(6, new EntityAIHurtByTarget(this, true));
+			this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityBlump.EntityCustom.class, (float) 6, 1, 1.2));
+			this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, false, false));
+			this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayerMP.class, false, false));
+			this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.2, false));
+			this.tasks.addTask(5, new EntityAIWander(this, 1));
+			this.tasks.addTask(6, new EntityAILookIdle(this));
+			this.tasks.addTask(7, new EntityAISwimming(this));
 		}
 
 		@Override
@@ -99,18 +101,20 @@ public class EntityYelow extends ElementsTheShadowRealm.ModElement {
 
 		@Override
 		public net.minecraft.util.SoundEvent getAmbientSound() {
-			return (net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation(""));
+			return (net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY
+					.getObject(new ResourceLocation("theshadowrealm:shadegremlinlive"));
 		}
 
 		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
-			return (net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("theshadowrealm:yelowhurt"));
+			return (net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY
+					.getObject(new ResourceLocation("theshadowrealm:shadegremlinhurt"));
 		}
 
 		@Override
 		public net.minecraft.util.SoundEvent getDeathSound() {
 			return (net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY
-					.getObject(new ResourceLocation("theshadowrealm:yelowdeath"));
+					.getObject(new ResourceLocation("theshadowrealm:shadegremlindie"));
 		}
 
 		@Override
@@ -124,52 +128,51 @@ public class EntityYelow extends ElementsTheShadowRealm.ModElement {
 			if (this.getEntityAttribute(SharedMonsterAttributes.ARMOR) != null)
 				this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0D);
 			if (this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
-				this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
+				this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
 			if (this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
-				this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(80D);
+				this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15D);
 			if (this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
-				this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6D);
+				this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4D);
 		}
 	}
 
-	public static class Modelyelow extends ModelBase {
+	public static class Modelshadegremlin extends ModelBase {
 		private final ModelRenderer head;
-		private final ModelRenderer body;
-		private final ModelRenderer right_arm;
-		private final ModelRenderer left_arm;
-		private final ModelRenderer left_leg;
-		private final ModelRenderer right_leg;
-		public Modelyelow() {
-			textureWidth = 128;
+		private final ModelRenderer armor;
+		private final ModelRenderer leg1;
+		private final ModelRenderer leg2;
+		private final ModelRenderer leg3;
+		private final ModelRenderer leg4;
+		public Modelshadegremlin() {
+			textureWidth = 64;
 			textureHeight = 64;
 			head = new ModelRenderer(this);
-			head.setRotationPoint(0.0F, -10.0F, 0.0F);
-			head.cubeList.add(new ModelBox(head, 0, 0, -8.0F, -16.0F, -5.0F, 16, 16, 10, 0.0F, false));
-			body = new ModelRenderer(this);
-			body.setRotationPoint(0.0F, -10.0F, 0.0F);
-			body.cubeList.add(new ModelBox(body, 0, 26, -9.0F, 0.0F, -5.0F, 18, 21, 11, 0.0F, false));
-			right_arm = new ModelRenderer(this);
-			right_arm.setRotationPoint(-11.0F, -6.0F, 0.0F);
-			right_arm.cubeList.add(new ModelBox(right_arm, 52, 0, -6.0F, -4.0F, -4.0F, 8, 28, 8, 0.0F, false));
-			left_arm = new ModelRenderer(this);
-			left_arm.setRotationPoint(11.0F, -6.0F, 0.0F);
-			left_arm.cubeList.add(new ModelBox(left_arm, 84, 0, -2.0F, -4.0F, -4.0F, 8, 28, 8, 0.0F, false));
-			left_leg = new ModelRenderer(this);
-			left_leg.setRotationPoint(6.0F, 11.0F, 0.0F);
-			left_leg.cubeList.add(new ModelBox(left_leg, 82, 36, -3.0F, 0.0F, -3.0F, 6, 13, 6, 0.0F, false));
-			right_leg = new ModelRenderer(this);
-			right_leg.setRotationPoint(-6.0F, 11.0F, 0.0F);
-			right_leg.cubeList.add(new ModelBox(right_leg, 58, 36, -3.0F, 0.0F, -3.0F, 6, 13, 6, 0.0F, false));
+			head.setRotationPoint(0.0F, 6.0F, 0.0F);
+			head.cubeList.add(new ModelBox(head, 0, 0, -4.0F, 4.0F, -4.0F, 8, 8, 8, 0.0F, false));
+			armor = new ModelRenderer(this);
+			armor.setRotationPoint(0.0F, 24.0F, 0.0F);
+			leg1 = new ModelRenderer(this);
+			leg1.setRotationPoint(2.0F, 18.0F, 4.0F);
+			leg1.cubeList.add(new ModelBox(leg1, 28, 30, -2.0F, 0.0F, -2.0F, 4, 6, 4, 0.0F, false));
+			leg2 = new ModelRenderer(this);
+			leg2.setRotationPoint(-2.0F, 18.0F, 4.0F);
+			leg2.cubeList.add(new ModelBox(leg2, 12, 30, -2.0F, 0.0F, -2.0F, 4, 6, 4, 0.0F, false));
+			leg3 = new ModelRenderer(this);
+			leg3.setRotationPoint(2.0F, 18.0F, -4.0F);
+			leg3.cubeList.add(new ModelBox(leg3, 0, 24, -2.0F, 0.0F, -2.0F, 4, 6, 4, 0.0F, false));
+			leg4 = new ModelRenderer(this);
+			leg4.setRotationPoint(-2.0F, 18.0F, -4.0F);
+			leg4.cubeList.add(new ModelBox(leg4, 20, 20, -2.0F, 0.0F, -2.0F, 4, 6, 4, 0.0F, false));
 		}
 
 		@Override
 		public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 			head.render(f5);
-			body.render(f5);
-			right_arm.render(f5);
-			left_arm.render(f5);
-			left_leg.render(f5);
-			right_leg.render(f5);
+			armor.render(f5);
+			leg1.render(f5);
+			leg2.render(f5);
+			leg3.render(f5);
+			leg4.render(f5);
 		}
 
 		public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
@@ -180,10 +183,10 @@ public class EntityYelow extends ElementsTheShadowRealm.ModElement {
 
 		public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
 			super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
-			this.right_arm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
-			this.left_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
-			this.left_arm.rotateAngleX = MathHelper.cos(f * 0.6662F) * f1;
-			this.right_leg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
+			this.leg1.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
+			this.leg4.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
+			this.leg2.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
+			this.leg3.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 		}
 	}
 }

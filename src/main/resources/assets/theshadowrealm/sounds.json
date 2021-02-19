@@ -16,5 +16,32 @@
         "stream": false
       }
     ]
+  },
+  "shadegremlindie": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "theshadowrealm:shadegremlindie",
+        "stream": false
+      }
+    ]
+  },
+  "shadegremlinhurt": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "theshadowrealm:shadegremlinhurt",
+        "stream": false
+      }
+    ]
+  },
+  "shadegremlinlive": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "theshadowrealm:shadegremlinlive",
+        "stream": false
+      }
+    ]
   }
 }

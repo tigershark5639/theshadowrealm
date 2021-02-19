@@ -1,6 +1,6 @@
 {
   "id_map": {
-    "ENTITY": 4
+    "ENTITY": 6
   },
   "mod_elements": [
     {
@@ -184,6 +184,17 @@
         "0": 3,
         "1": 4
       }
+    },
+    {
+      "name": "Shadegremlin",
+      "type": "mob",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {
+        "0": 5,
+        "1": 6
+      }
     }
   ],
   "variable_elements": [],
@@ -197,6 +208,21 @@
       "name": "yelowdeath",
       "file": "yelowdeath",
       "category": "neutral"
+    },
+    {
+      "name": "shadegremlindie",
+      "file": "shadegremlindie",
+      "category": "master"
+    },
+    {
+      "name": "shadegremlinhurt",
+      "file": "shadegremlinhurt",
+      "category": "master"
+    },
+    {
+      "name": "shadegremlinlive",
+      "file": "shadegremlinlive",
+      "category": "master"
     }
   ],
   "language_map": {
@@ -214,6 +240,7 @@
       "item.blumpmeat.name": "Blump Meat",
       "tile.shadedirt.name": "Shade Dirt",
       "tile.yellowshadegrassplant.name": "Yellow Shade Grass Plant",
+      "entity.shadegremlin.name": "Shadegremlin",
       "entity.blump.name": "Blump"
     }
   },
